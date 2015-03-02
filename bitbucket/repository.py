@@ -60,9 +60,10 @@ class Repository(object):
             pass
         return response
 
-    def all(self):
-        """ Return own repositories."""
-        url = self.bitbucket.url('GET_USER', username=self.bitbucket.username)
+    def all(self, owner=None):
+        """ Return all repositories for a given owner """
+        owner = owner or self.bitbucket.username
+        url = self.bitbucket.url('GET_USER', username=owner)
         response = self.bitbucket.dispatch('GET', url, auth=self.bitbucket.auth)
         try:
             return (response[0], response[1]['repositories'])
