@@ -14,5 +14,8 @@ bitbucket/tests/private/settings.py
 .settings/
 build/
 
+# Ignore PyCharm files
+.idea/
+
 # Ignore doc generated files
 docs/_build/
